@@ -29,13 +29,13 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
             [
                 [
                     'grids' => [
-                        'adevis_admin_tax_category' => null
+                        'miky_admin_tax_category' => null
                     ],
                 ],
             ],
             [
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'driver' => [
                             'name' => Driver::NAME,
                             'options' => [],
@@ -59,7 +59,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertConfigurationIsInvalid(
             [
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'driver' => [
                             'name' => null
                         ]
@@ -77,7 +77,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertConfigurationIsInvalid(
             [
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'fields' => [
                             'code' => [
                                 'label' => 'Internal code'
@@ -97,7 +97,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertConfigurationIsInvalid(
             [
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'sorting' => [
                             'code' => [
                                 'direction' => 'desc',
@@ -117,7 +117,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertConfigurationIsValid(
             [[
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'sorting' => [
                             'code' => [
                                 'path' => 'code',
@@ -133,7 +133,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertConfigurationIsValid(
             [[
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'sorting' => [
                             'code' => [
                                 'path' => 'code',
@@ -148,7 +148,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertConfigurationIsInvalid(
             [
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'sorting' => [
                             'code' => [
                                 'path' => 'code',
@@ -169,7 +169,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertProcessedConfigurationEquals(
             [[
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'sorting' => [
                             'code' => [
                                 'path' => 'code'
@@ -180,7 +180,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
             ]],
             [
                 'grids' => [
-                    'adevis_admin_tax_category' => [
+                    'miky_admin_tax_category' => [
                         'driver' => [
                             'name' => Driver::NAME,
                             'options' => [],

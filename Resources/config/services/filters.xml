@@ -13,17 +13,17 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="adevis.grid_filter.string" class="Miky\Component\Grid\Filter\StringFilter">
-            <tag name="adevis.grid_filter" type="string" />
+        <service id="miky.grid_filter.string" class="Miky\Component\Grid\Filter\StringFilter">
+            <tag name="miky.grid_filter" type="string" />
         </service>
-        <service id="adevis.form.type.grid_filter.string" class="Miky\Bundle\GridBundle\Form\Type\Filter\StringFilterType">
-            <tag name="form.type" alias="adevis_grid_filter_string" />
+        <service id="miky.form.type.grid_filter.string" class="Miky\Bundle\GridBundle\Form\Type\Filter\StringFilterType">
+            <tag name="form.type" alias="miky_grid_filter_string" />
         </service>
-        <service id="adevis.grid_filter.boolean" class="Miky\Component\Grid\Filter\BooleanFilter">
-            <tag name="adevis.grid_filter" type="boolean" />
+        <service id="miky.grid_filter.boolean" class="Miky\Component\Grid\Filter\BooleanFilter">
+            <tag name="miky.grid_filter" type="boolean" />
         </service>
-        <service id="adevis.form.type.grid_filter.boolean" class="Miky\Bundle\GridBundle\Form\Type\Filter\BooleanFilterType">
-            <tag name="form.type" alias="adevis_grid_filter_boolean" />
+        <service id="miky.form.type.grid_filter.boolean" class="Miky\Bundle\GridBundle\Form\Type\Filter\BooleanFilterType">
+            <tag name="form.type" alias="miky_grid_filter_boolean" />
         </service>
     </services>
 </container>

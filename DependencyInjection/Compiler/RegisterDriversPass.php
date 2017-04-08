@@ -23,13 +23,13 @@ class RegisterDriversPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('adevis.registry.grid_driver')) {
+        if (!$container->hasDefinition('miky.registry.grid_driver')) {
             return;
         }
 
-        $registry = $container->findDefinition('adevis.registry.grid_driver');
+        $registry = $container->findDefinition('miky.registry.grid_driver');
 
-        foreach ($container->findTaggedServiceIds('adevis.grid_driver') as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds('miky.grid_driver') as $id => $attributes) {
             if (!isset($attributes[0]['alias']))  {
                 throw new \InvalidArgumentException('Tagged grid drivers needs to have `alias` attribute.');
             }

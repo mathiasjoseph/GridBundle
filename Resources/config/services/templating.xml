@@ -13,9 +13,9 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="adevis.templating.helper.grid" class="Miky\Bundle\GridBundle\Templating\Helper\GridHelper" lazy="true">
-            <argument type="service" id="adevis.grid.renderer" />
-            <tag name="templating.helper" alias="adevis_grid" />
+        <service id="miky.templating.helper.grid" class="Miky\Bundle\GridBundle\Templating\Helper\GridHelper" lazy="true">
+            <argument type="service" id="miky.grid.renderer" />
+            <tag name="templating.helper" alias="miky_grid" />
         </service>
     </services>
 </container>

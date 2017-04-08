@@ -13,16 +13,16 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="adevis.grid.renderer.twig" class="Miky\Bundle\GridBundle\Renderer\TwigGridRenderer">
+        <service id="miky.grid.renderer.twig" class="Miky\Bundle\GridBundle\Renderer\TwigGridRenderer">
             <argument type="service" id="twig" />
-            <argument type="service" id="adevis.registry.grid_field" />
+            <argument type="service" id="miky.registry.grid_field" />
             <argument type="service" id="form.factory" />
             <argument>MikyGridBundle::_grid.html.twig</argument>
-            <argument>%adevis.grid.templates.action%</argument>
-            <argument>%adevis.grid.templates.filter%</argument>
+            <argument>%miky.grid.templates.action%</argument>
+            <argument>%miky.grid.templates.filter%</argument>
         </service>
-        <service id="adevis.twig.extension.grid" class="Miky\Bundle\GridBundle\Twig\GridExtension" public="false">
-            <argument type="service" id="adevis.templating.helper.grid" />
+        <service id="miky.twig.extension.grid" class="Miky\Bundle\GridBundle\Twig\GridExtension" public="false">
+            <argument type="service" id="miky.templating.helper.grid" />
             <tag name="twig.extension" />
         </service>
     </services>

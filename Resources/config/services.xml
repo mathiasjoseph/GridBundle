@@ -20,40 +20,40 @@
     </imports>
 
     <services>
-        <service id="adevis.grid.data_extractor.property_access" class="Miky\Component\Grid\DataExtractor\PropertyAccessDataExtractor">
+        <service id="miky.grid.data_extractor.property_access" class="Miky\Component\Grid\DataExtractor\PropertyAccessDataExtractor">
             <argument type="service" id="property_accessor" />
         </service>
-        <service id="adevis.grid.array_to_definition_converter" class="Miky\Component\Grid\Definition\ArrayToDefinitionConverter" />
-        <service id="adevis.grid.provider" class="Miky\Component\Grid\Provider\ArrayGridProvider">
-            <argument type="service" id="adevis.grid.array_to_definition_converter" />
-            <argument>%adevis.grids_definitions%</argument>
+        <service id="miky.grid.array_to_definition_converter" class="Miky\Component\Grid\Definition\ArrayToDefinitionConverter" />
+        <service id="miky.grid.provider" class="Miky\Component\Grid\Provider\ArrayGridProvider">
+            <argument type="service" id="miky.grid.array_to_definition_converter" />
+            <argument>%miky.grids_definitions%</argument>
         </service>
 
-        <service id="adevis.grid.view_factory" class="Miky\Component\Grid\View\GridViewFactory">
-            <argument type="service" id="adevis.grid.data_provider" />
+        <service id="miky.grid.view_factory" class="Miky\Component\Grid\View\GridViewFactory">
+            <argument type="service" id="miky.grid.data_provider" />
         </service>
-        <service id="adevis.grid.data_provider" class="Miky\Component\Grid\Data\DataProvider">
-            <argument type="service" id="adevis.grid.data_source_provider" />
-            <argument type="service" id="adevis.grid.filters_applicator" />
-            <argument type="service" id="adevis.grid.sorter" />
+        <service id="miky.grid.data_provider" class="Miky\Component\Grid\Data\DataProvider">
+            <argument type="service" id="miky.grid.data_source_provider" />
+            <argument type="service" id="miky.grid.filters_applicator" />
+            <argument type="service" id="miky.grid.sorter" />
         </service>
-        <service id="adevis.grid.filters_applicator" class="Miky\Component\Grid\Filtering\FiltersApplicator">
-            <argument type="service" id="adevis.registry.grid_filter" />
+        <service id="miky.grid.filters_applicator" class="Miky\Component\Grid\Filtering\FiltersApplicator">
+            <argument type="service" id="miky.registry.grid_filter" />
         </service>
-        <service id="adevis.grid.sorter" class="Miky\Component\Grid\Sorting\Sorter" />
-        <service id="adevis.grid.data_source_provider" class="Miky\Component\Grid\Data\DataSourceProvider">
-            <argument type="service" id="adevis.registry.grid_driver" />
+        <service id="miky.grid.sorter" class="Miky\Component\Grid\Sorting\Sorter" />
+        <service id="miky.grid.data_source_provider" class="Miky\Component\Grid\Data\DataSourceProvider">
+            <argument type="service" id="miky.registry.grid_driver" />
         </service>
 
-        <service id="adevis.registry.grid_driver" class="Miky\Component\Registry\ServiceRegistry">
+        <service id="miky.registry.grid_driver" class="Miky\Component\Registry\ServiceRegistry">
             <argument>Miky\Component\Grid\Data\DriverInterface</argument>
             <argument>grid driver</argument>
         </service>
-        <service id="adevis.registry.grid_filter" class="Miky\Component\Registry\ServiceRegistry">
+        <service id="miky.registry.grid_filter" class="Miky\Component\Registry\ServiceRegistry">
             <argument>Miky\Component\Grid\Filtering\FilterInterface</argument>
             <argument>grid filter</argument>
         </service>
-        <service id="adevis.registry.grid_field" class="Miky\Component\Registry\ServiceRegistry">
+        <service id="miky.registry.grid_field" class="Miky\Component\Registry\ServiceRegistry">
             <argument>Miky\Component\Grid\FieldTypes\FieldTypeInterface</argument>
             <argument>grid field</argument>
         </service>

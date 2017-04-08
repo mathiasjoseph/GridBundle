@@ -27,15 +27,15 @@ class StringFilterType extends AbstractType
         $builder
             ->add('type', 'choice', [
                 'choices' => [
-                    StringFilter::TYPE_CONTAINS => 'adevis.ui.contains',
-                    StringFilter::TYPE_NOT_CONTAINS => 'adevis.ui.not_contains',
-                    StringFilter::TYPE_EQUAL => 'adevis.ui.equal',
-                    StringFilter::TYPE_EMPTY => 'adevis.ui.empty',
-                    StringFilter::TYPE_NOT_EMPTY => 'adevis.ui.not_empty',
-                    StringFilter::TYPE_STARTS_WITH => 'adevis.ui.starts_with',
-                    StringFilter::TYPE_ENDS_WITH => 'adevis.ui.ends_with',
-                    StringFilter::TYPE_IN => 'adevis.ui.in',
-                    StringFilter::TYPE_NOT_IN => 'adevis.ui.not_in'
+                    StringFilter::TYPE_CONTAINS => 'miky.ui.contains',
+                    StringFilter::TYPE_NOT_CONTAINS => 'miky.ui.not_contains',
+                    StringFilter::TYPE_EQUAL => 'miky.ui.equal',
+                    StringFilter::TYPE_EMPTY => 'miky.ui.empty',
+                    StringFilter::TYPE_NOT_EMPTY => 'miky.ui.not_empty',
+                    StringFilter::TYPE_STARTS_WITH => 'miky.ui.starts_with',
+                    StringFilter::TYPE_ENDS_WITH => 'miky.ui.ends_with',
+                    StringFilter::TYPE_IN => 'miky.ui.in',
+                    StringFilter::TYPE_NOT_IN => 'miky.ui.not_in'
                 ]
             ])
             ->add('value', 'text', ['required' => false])
@@ -65,6 +65,6 @@ class StringFilterType extends AbstractType
      */
     public function getName()
     {
-        return 'adevis_grid_filter_string';
+        return 'miky_grid_filter_string';
     }
 }

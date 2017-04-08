@@ -39,10 +39,10 @@ class GridExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('adevis_grid_render', [$this, 'renderGrid'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('adevis_grid_render_field', [$this, 'renderField'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('adevis_grid_render_action', [$this, 'renderAction'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('adevis_grid_render_filter', [$this, 'renderFilter'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('miky_grid_render', [$this, 'renderGrid'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('miky_grid_render_field', [$this, 'renderField'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('miky_grid_render_action', [$this, 'renderAction'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('miky_grid_render_filter', [$this, 'renderFilter'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -95,6 +95,6 @@ class GridExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'adevis_grid';
+        return 'miky_grid';
     }
 }

@@ -84,6 +84,6 @@ class GridHelper extends Helper
      */
     public function getName()
     {
-        return 'adevis_grid';
+        return 'miky_grid';
     }
 }

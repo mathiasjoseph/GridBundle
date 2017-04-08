@@ -27,10 +27,10 @@ class BooleanFilterType extends AbstractType
             ->setDefaults([
                 'data_class' => null,
                 'required' => false,
-                'empty_value' => 'adevis.ui.all',
+                'empty_value' => 'miky.ui.all',
                 'choices' => [
-                    BooleanFilter::TRUE => 'adevis.ui.yes',
-                    BooleanFilter::FALSE => 'adevis.ui.no',
+                    BooleanFilter::TRUE => 'miky.ui.yes',
+                    BooleanFilter::FALSE => 'miky.ui.no',
                 ],
             ])
             ->setOptional([
@@ -55,6 +55,6 @@ class BooleanFilterType extends AbstractType
      */
     public function getName()
     {
-        return 'adevis_grid_filter_boolean';
+        return 'miky_grid_filter_boolean';
     }
 }

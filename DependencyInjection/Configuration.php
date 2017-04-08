@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('adevis_grid');
+        $rootNode = $treeBuilder->root('miky_grid');
 
         $this->addDriversSection($rootNode);
         $this->addTemplatesSection($rootNode);

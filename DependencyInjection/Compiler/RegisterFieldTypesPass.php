@@ -23,13 +23,13 @@ class RegisterFieldTypesPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('adevis.registry.grid_field')) {
+        if (!$container->hasDefinition('miky.registry.grid_field')) {
             return;
         }
 
-        $registry = $container->getDefinition('adevis.registry.grid_field');
+        $registry = $container->getDefinition('miky.registry.grid_field');
 
-        foreach ($container->findTaggedServiceIds('adevis.grid_field') as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds('miky.grid_field') as $id => $attributes) {
             if (!isset($attributes[0]['type']))  {
                 throw new \InvalidArgumentException('Tagged grid fields needs to have `type` attribute.');
             }

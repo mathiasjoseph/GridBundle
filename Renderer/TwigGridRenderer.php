@@ -127,7 +127,7 @@ class TwigGridRenderer implements GridRendererInterface
         }
 
         $form = $this->formFactory->createNamed('criteria', 'form', [], ['csrf_protection' => false, 'required' => false]);
-        $form->add($filter->getName(), sprintf('adevis_grid_filter_%s', $filter->getType()), $filter->getOptions());
+        $form->add($filter->getName(), sprintf('miky_grid_filter_%s', $filter->getType()), $filter->getOptions());
 
         $criteria = $gridView->getParameters()->get('criteria', []);
         $form->submit($criteria);

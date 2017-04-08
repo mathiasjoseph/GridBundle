@@ -23,13 +23,13 @@ class RegisterFiltersPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('adevis.registry.grid_filter')) {
+        if (!$container->hasDefinition('miky.registry.grid_filter')) {
             return;
         }
 
-        $registry = $container->getDefinition('adevis.registry.grid_filter');
+        $registry = $container->getDefinition('miky.registry.grid_filter');
 
-        foreach ($container->findTaggedServiceIds('adevis.grid_filter') as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds('miky.grid_filter') as $id => $attributes) {
             if (!isset($attributes[0]['type']))  {
                 throw new \InvalidArgumentException('Tagged grid filters needs to have `type` attribute.');
             }

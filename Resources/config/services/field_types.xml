@@ -13,18 +13,18 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="adevis.grid_field.datetime" class="Miky\Component\Grid\FieldTypes\DatetimeFieldType">
-            <argument type="service" id="adevis.grid.data_extractor" />
-            <tag name="adevis.grid_field" type="datetime" />
+        <service id="miky.grid_field.datetime" class="Miky\Component\Grid\FieldTypes\DatetimeFieldType">
+            <argument type="service" id="miky.grid.data_extractor" />
+            <tag name="miky.grid_field" type="datetime" />
         </service>
-        <service id="adevis.grid_field.string" class="Miky\Component\Grid\FieldTypes\StringFieldType">
-            <argument type="service" id="adevis.grid.data_extractor" />
-            <tag name="adevis.grid_field" type="string" />
+        <service id="miky.grid_field.string" class="Miky\Component\Grid\FieldTypes\StringFieldType">
+            <argument type="service" id="miky.grid.data_extractor" />
+            <tag name="miky.grid_field" type="string" />
         </service>
-        <service id="adevis.grid_field.twig" class="Miky\Bundle\GridBundle\FieldTypes\TwigFieldType">
-            <argument type="service" id="adevis.grid.data_extractor" />
+        <service id="miky.grid_field.twig" class="Miky\Bundle\GridBundle\FieldTypes\TwigFieldType">
+            <argument type="service" id="miky.grid.data_extractor" />
             <argument type="service" id="twig" />
-            <tag name="adevis.grid_field" type="twig" />
+            <tag name="miky.grid_field" type="twig" />
         </service>
     </services>
 </container>
