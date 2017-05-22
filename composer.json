@@ -14,7 +14,8 @@
   ],
   "require" : {
     "mikycorp/corebundle": "~1.0",
-    "mikycorp/grid": "~1.0"
+    "mikycorp/grid": "~1.0",
+    "webmozart/assert": "^1.2"
   },
   "autoload" : {
     "psr-0" : {
