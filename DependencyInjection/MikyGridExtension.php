@@ -39,9 +39,5 @@ class MikyGridExtension extends Extension
         $container->setAlias('miky.grid.renderer', 'miky.grid.renderer.twig');
         $container->setAlias('miky.grid.data_extractor', 'miky.grid.data_extractor.property_access');
 
-        foreach ($config['drivers'] as $enabledDriver) {
-            $path = sprintf('driver/%s.xml', $enabledDriver);
-            $loader->load($path);
-        }
     }
 }

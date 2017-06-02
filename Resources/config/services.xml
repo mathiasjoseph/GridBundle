@@ -17,6 +17,7 @@
         <import resource="services/filters.xml" />
         <import resource="services/templating.xml" />
         <import resource="services/twig.xml" />
+        <import resource="services/orm.xml" />
     </imports>
 
     <services>
