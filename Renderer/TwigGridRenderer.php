@@ -18,6 +18,8 @@ use Miky\Component\Grid\FieldTypes\FieldTypeInterface;
 use Miky\Component\Grid\Renderer\GridRendererInterface;
 use Miky\Component\Grid\View\GridView;
 use Miky\Component\Registry\ServiceRegistryInterface;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -45,6 +47,11 @@ class TwigGridRenderer implements GridRendererInterface
     private $actionTemplates;
 
     /**
+     * @var array
+     */
+    private $batchActionTemplate;
+
+    /**
      * @var FormFactoryInterface
      */
     private $formFactory;
@@ -55,27 +62,37 @@ class TwigGridRenderer implements GridRendererInterface
     private $filterTemplates;
 
     /**
+     * @var Router
+     */
+    private $router;
+
+    /**
      * @param \Twig_Environment $twig
      * @param ServiceRegistryInterface $fieldsRegistry
      * @param FormFactoryInterface $formFactory
      * @param string $defaultTemplate
      * @param array $actionTemplates
      * @param array $filterTemplates
+     * @param string $batchActionTemplate
      */
     public function __construct(
         \Twig_Environment $twig,
         ServiceRegistryInterface $fieldsRegistry,
         FormFactoryInterface $formFactory,
+        Router $router,
         $defaultTemplate,
         array $actionTemplates = [],
-        array $filterTemplates = []
+        array $filterTemplates = [],
+        $batchActionTemplate
     ) {
         $this->twig = $twig;
+        $this->router = $router;
         $this->defaultTemplate = $defaultTemplate;
         $this->fieldsRegistry = $fieldsRegistry;
         $this->actionTemplates = $actionTemplates;
         $this->formFactory = $formFactory;
         $this->filterTemplates = $filterTemplates;
+        $this->batchActionTemplate = $batchActionTemplate;
     }
 
     /**
@@ -117,6 +134,29 @@ class TwigGridRenderer implements GridRendererInterface
         ]);
     }
 
+    public function renderBatchActions(GridView $gridView, $data = null)
+    {
+        if ($this->batchActionTemplate == null) {
+            throw new \InvalidArgumentException('Missing template for bulk actions.');
+        }
+        if (empty($gridView->getDefinition()->getBatchActions())){
+            return;
+        }
+        $url = $this->router->generate($gridView->getRequestConfiguration()->getRouteName("batch"));
+        $form = $this->formFactory->createNamed('bulk_action', 'form', [], ['required' => false, "action" => $url ]);
+        $choices = array();
+        foreach ($gridView->getDefinition()->getBatchActions() as $action){
+            $choices[$action->getName()] = $action->getLabel();
+        }
+        $form->add("batchAction", ChoiceType::class,array(
+            "choices" => $choices,
+        ));
+
+        return $this->twig->render($this->batchActionTemplate, [
+            'grid' => $gridView,
+            'form' => $form->createView(),
+        ]);
+    }
     /**
      * {@inheritdoc}
      */

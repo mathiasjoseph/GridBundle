@@ -17,9 +17,11 @@
             <argument type="service" id="twig" />
             <argument type="service" id="miky.registry.grid_field" />
             <argument type="service" id="form.factory" />
+            <argument type="service" id="router" />
             <argument>MikyGridBundle::_grid.html.twig</argument>
             <argument>%miky.grid.templates.action%</argument>
             <argument>%miky.grid.templates.filter%</argument>
+            <argument>%miky.grid.templates.batch_action%</argument>
         </service>
         <service id="miky.twig.extension.grid" class="Miky\Bundle\GridBundle\Twig\GridExtension" public="false">
             <argument type="service" id="miky.templating.helper.grid" />

@@ -33,6 +33,7 @@ class MikyGridExtension extends Extension
             $templates = isset($config['templates'][$templatesCollectionName]) ? $config['templates'][$templatesCollectionName] : [];
             $container->setParameter('miky.grid.templates.'.$templatesCollectionName, $templates);
         }
+        $container->setParameter('miky.grid.templates.batch_action', $config['templates']["batch_action"]);
 
         $container->setParameter('miky.grids_definitions', $config['grids']);
 

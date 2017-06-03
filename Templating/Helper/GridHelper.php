@@ -70,6 +70,15 @@ class GridHelper extends Helper
 
     /**
      * @param GridView $gridView
+     * @return mixed
+     */
+    public function renderBatchAction(GridView $gridView, $data = null)
+    {
+        return $this->gridRenderer->renderBatchActions($gridView, $data);
+    }
+
+    /**
+     * @param GridView $gridView
      * @param Filter $filter
      *
      * @return mixed
