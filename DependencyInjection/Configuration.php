@@ -74,7 +74,6 @@ class Configuration implements ConfigurationInterface
                             ->arrayNode('driver')
                                 ->addDefaultsIfNotSet()
                                 ->children()
-                                    ->scalarNode('name')->defaultValue(DoctrineORMDriver::NAME)->end()
                                     ->arrayNode('options')
                                         ->prototype('variable')->end()
                                         ->defaultValue([])

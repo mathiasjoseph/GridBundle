@@ -11,6 +11,7 @@
 
 namespace Miky\Bundle\GridBundle\Renderer;
 
+use Miky\Bundle\GridBundle\Form\Factory\BatchActionFormFactory;
 use Miky\Component\Grid\Definition\Action;
 use Miky\Component\Grid\Definition\Field;
 use Miky\Component\Grid\Definition\Filter;
@@ -62,9 +63,9 @@ class TwigGridRenderer implements GridRendererInterface
     private $filterTemplates;
 
     /**
-     * @var Router
+     * @var BatchActionFormFactory
      */
-    private $router;
+    private $batchActionFormFactory;
 
     /**
      * @param \Twig_Environment $twig
@@ -79,18 +80,18 @@ class TwigGridRenderer implements GridRendererInterface
         \Twig_Environment $twig,
         ServiceRegistryInterface $fieldsRegistry,
         FormFactoryInterface $formFactory,
-        Router $router,
+        BatchActionFormFactory $batchActionFormFactory,
         $defaultTemplate,
         array $actionTemplates = [],
         array $filterTemplates = [],
         $batchActionTemplate
     ) {
         $this->twig = $twig;
-        $this->router = $router;
         $this->defaultTemplate = $defaultTemplate;
         $this->fieldsRegistry = $fieldsRegistry;
         $this->actionTemplates = $actionTemplates;
         $this->formFactory = $formFactory;
+        $this->batchActionFormFactory = $batchActionFormFactory;
         $this->filterTemplates = $filterTemplates;
         $this->batchActionTemplate = $batchActionTemplate;
     }
@@ -142,15 +143,8 @@ class TwigGridRenderer implements GridRendererInterface
         if (empty($gridView->getDefinition()->getBatchActions())){
             return;
         }
-        $url = $this->router->generate($gridView->getRequestConfiguration()->getRouteName("batch"));
-        $form = $this->formFactory->createNamed('bulk_action', 'form', [], ['required' => false, "action" => $url ]);
-        $choices = array();
-        foreach ($gridView->getDefinition()->getBatchActions() as $action){
-            $choices[$action->getName()] = $action->getLabel();
-        }
-        $form->add("batchAction", ChoiceType::class,array(
-            "choices" => $choices,
-        ));
+
+        $form = $this->batchActionFormFactory->createForm($gridView->getDefinition(), $gridView->getRequestConfiguration());
 
         return $this->twig->render($this->batchActionTemplate, [
             'grid' => $gridView,

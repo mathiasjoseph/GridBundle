@@ -17,7 +17,7 @@
             <argument type="service" id="twig" />
             <argument type="service" id="miky.registry.grid_field" />
             <argument type="service" id="form.factory" />
-            <argument type="service" id="router" />
+            <argument type="service" id="miky_grid.form.factory.batch_action" />
             <argument>MikyGridBundle::_grid.html.twig</argument>
             <argument>%miky.grid.templates.action%</argument>
             <argument>%miky.grid.templates.filter%</argument>

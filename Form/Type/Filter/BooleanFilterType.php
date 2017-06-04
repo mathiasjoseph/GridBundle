@@ -27,10 +27,10 @@ class BooleanFilterType extends AbstractType
             ->setDefaults([
                 'data_class' => null,
                 'required' => false,
-                'empty_value' => 'miky.ui.all',
+                'empty_value' => 'miky_core.all',
                 'choices' => [
-                    BooleanFilter::TRUE => 'miky.ui.yes',
-                    BooleanFilter::FALSE => 'miky.ui.no',
+                    BooleanFilter::TRUE => 'miky_core.yes',
+                    BooleanFilter::FALSE => 'miky_core.no',
                 ],
             ])
             ->setOptional([

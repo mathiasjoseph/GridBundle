@@ -18,7 +18,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class Driver implements DriverInterface
 {
-    const NAME = 'doctrine/orm';
+
 
     /**
      * @var EntityManagerInterface
