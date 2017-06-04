@@ -15,6 +15,7 @@
     <services>
         <service id="miky.grid_driver.doctrine.orm" class="Miky\Bundle\GridBundle\Doctrine\ORM\Driver">
             <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="miky.resource_registry"/>
             <tag name="miky.grid_driver" alias="doctrine/orm" />
         </service>
 

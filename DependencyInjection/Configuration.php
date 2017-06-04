@@ -71,6 +71,7 @@ class Configuration implements ConfigurationInterface
                     ->useAttributeAsKey('code')
                     ->prototype('array')
                         ->children()
+                            ->scalarNode('resource')->isRequired()->cannotBeEmpty()->end()
                             ->arrayNode('driver')
                                 ->addDefaultsIfNotSet()
                                 ->children()

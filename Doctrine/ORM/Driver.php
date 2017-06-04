@@ -12,8 +12,10 @@
 namespace Miky\Bundle\GridBundle\Doctrine\ORM;
 
 use Miky\Component\Grid\Data\DriverInterface;
+use Miky\Component\Grid\Definition\Grid;
 use Miky\Component\Grid\Parameters;
 use Doctrine\ORM\EntityManagerInterface;
+use Miky\Component\Resource\Metadata\RegistryInterface;
 
 
 class Driver implements DriverInterface
@@ -26,23 +28,28 @@ class Driver implements DriverInterface
     private $entityManager;
 
     /**
+     * @var RegistryInterface
+     */
+    private $registry;
+
+    /**
      * @param EntityManagerInterface $entityManager
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, RegistryInterface $registry)
     {
         $this->entityManager = $entityManager;
+        $this->registry = $registry;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getDataSource(array $configuration, Parameters $parameters)
+    public function getDataSource(Grid $grid, Parameters $parameters)
     {
-        if (!array_key_exists('class', $configuration)) {
-            throw new \InvalidArgumentException('"class" must be configured.');
-        }
-
-        $repository = $this->entityManager->getRepository($configuration['class']);
+        $resource = $this->registry->get($grid->getResourceAlias());
+        $class = $resource->getParameter('classes')['model'];
+        $configuration = $grid->getDriverConfiguration();
+        $repository = $this->entityManager->getRepository($class);
         if (isset($configuration['repository']['method'])) {
             $callable = [$repository, $configuration['repository']['method']];
             $arguments = isset($configuration['repository']['arguments']) ? $configuration['repository']['arguments'] : [];
