@@ -28,6 +28,12 @@ class MikyGridExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
         $loader->load('services.xml');
+        $loader->load('services/field_types.xml');
+        $loader->load('services/filters.xml');
+        $loader->load('services/templating.xml');
+        $loader->load('services/twig.xml');
+        $loader->load('services/orm.xml');
+        $loader->load('services/form.xml');
 
         foreach (['filter', 'action'] as $templatesCollectionName) {
             $templates = isset($config['templates'][$templatesCollectionName]) ? $config['templates'][$templatesCollectionName] : [];

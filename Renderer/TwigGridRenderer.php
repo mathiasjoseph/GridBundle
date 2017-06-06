@@ -67,6 +67,9 @@ class TwigGridRenderer implements GridRendererInterface
      */
     private $batchActionFormFactory;
 
+
+    private $filterRegistry;
+
     /**
      * @param \Twig_Environment $twig
      * @param ServiceRegistryInterface $fieldsRegistry
@@ -84,7 +87,8 @@ class TwigGridRenderer implements GridRendererInterface
         $defaultTemplate,
         array $actionTemplates = [],
         array $filterTemplates = [],
-        $batchActionTemplate
+        $batchActionTemplate,
+        $filterRegistry
     ) {
         $this->twig = $twig;
         $this->defaultTemplate = $defaultTemplate;
@@ -94,6 +98,7 @@ class TwigGridRenderer implements GridRendererInterface
         $this->batchActionFormFactory = $batchActionFormFactory;
         $this->filterTemplates = $filterTemplates;
         $this->batchActionTemplate = $batchActionTemplate;
+        $this->filterRegistry = $filterRegistry;
     }
 
     /**
@@ -112,6 +117,7 @@ class TwigGridRenderer implements GridRendererInterface
     {
         /** @var FieldTypeInterface $fieldType */
         $fieldType = $this->fieldsRegistry->get($field->getType());
+
         $resolver = new OptionsResolver();
         $fieldType->configureOptions($resolver);
         $options = $resolver->resolve($field->getOptions());
@@ -156,12 +162,13 @@ class TwigGridRenderer implements GridRendererInterface
      */
     public function renderFilter(GridView $gridView, Filter $filter)
     {
+        $filterType = $this->filterRegistry->get($filter->getType());
         if (!isset($this->filterTemplates[$type = $filter->getType()])) {
             throw new \InvalidArgumentException(sprintf('Missing template for filter type "%s".', $type));
         }
 
         $form = $this->formFactory->createNamed('criteria', 'form', [], ['csrf_protection' => false, 'required' => false]);
-        $form->add($filter->getName(), sprintf('miky_grid_filter_%s', $filter->getType()), $filter->getOptions());
+        $form->add($filter->getName(), $filterType->getFormClass(), $filter->getOptions());
 
         $criteria = $gridView->getParameters()->get('criteria', []);
         $form->submit($criteria);

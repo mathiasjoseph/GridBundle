@@ -22,6 +22,7 @@
             <argument>%miky.grid.templates.action%</argument>
             <argument>%miky.grid.templates.filter%</argument>
             <argument>%miky.grid.templates.batch_action%</argument>
+            <argument type="service" id="miky.registry.grid_filter"/>
         </service>
         <service id="miky.twig.extension.grid" class="Miky\Bundle\GridBundle\Twig\GridExtension" public="false">
             <argument type="service" id="miky.templating.helper.grid" />

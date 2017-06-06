@@ -61,10 +61,8 @@ class TwigFieldType implements FieldTypeInterface
         $resolver->setRequired([
             'template'
         ]);
-        $resolver->setAllowedTypes([
-            'template' => ['string'],
-            'vars' => ['array'],
-        ]);
+        $resolver->setAllowedTypes('template', ['string']);
+        $resolver->setAllowedTypes('vars', ['array']);
     }
 
     /**
