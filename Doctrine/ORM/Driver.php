@@ -11,10 +11,10 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\ORM;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Miky\Component\Grid\Data\DriverInterface;
 use Miky\Component\Grid\Definition\Grid;
 use Miky\Component\Grid\Parameters;
-use Doctrine\ORM\EntityManagerInterface;
 use Miky\Component\Resource\Metadata\RegistryInterface;
 
 

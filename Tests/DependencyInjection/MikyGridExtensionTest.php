@@ -11,8 +11,8 @@
 
 namespace Miky\Bundle\GridBundle\Tests\DependencyInjection;
 
-use Miky\Bundle\GridBundle\DependencyInjection\MikyGridExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
+use Miky\Bundle\GridBundle\DependencyInjection\MikyGridExtension;
 
 
 class MikyGridExtensionTest extends AbstractExtensionTestCase

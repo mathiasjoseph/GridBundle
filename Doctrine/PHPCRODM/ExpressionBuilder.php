@@ -11,10 +11,10 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\PHPCRODM;
 
-use Miky\Component\Grid\Data\ExpressionBuilderInterface;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\Common\Collections\ExpressionBuilder as CollectionsExpressionBuilder;
 use Doctrine\ODM\PHPCR\Query\Builder\QueryBuilder;
+use Miky\Component\Grid\Data\ExpressionBuilderInterface;
 
 /**
  * Creates an object graph (using Doctrine\Commons\Collections\Expr\*) which we

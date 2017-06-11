@@ -11,9 +11,9 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\DBAL;
 
+use Doctrine\DBAL\Connection;
 use Miky\Component\Grid\Data\DriverInterface;
 use Miky\Component\Grid\Parameters;
-use Doctrine\DBAL\Connection;
 
 
 class Driver implements DriverInterface

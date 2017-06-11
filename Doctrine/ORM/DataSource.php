@@ -11,10 +11,10 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\ORM;
 
+use Doctrine\ORM\QueryBuilder;
 use Miky\Component\Grid\Data\DataSourceInterface;
 use Miky\Component\Grid\Data\ExpressionBuilderInterface;
 use Miky\Component\Grid\Parameters;
-use Doctrine\ORM\QueryBuilder;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 

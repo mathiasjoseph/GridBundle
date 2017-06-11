@@ -11,9 +11,9 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\PHPCRODM;
 
+use Doctrine\ODM\PHPCR\DocumentManagerInterface;
 use Miky\Component\Grid\Data\DriverInterface;
 use Miky\Component\Grid\Parameters;
-use Doctrine\ODM\PHPCR\DocumentManagerInterface;
 
 class Driver implements DriverInterface
 {

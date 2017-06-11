@@ -11,8 +11,8 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\ORM;
 
-use Miky\Component\Grid\Data\ExpressionBuilderInterface;
 use Doctrine\ORM\QueryBuilder;
+use Miky\Component\Grid\Data\ExpressionBuilderInterface;
 
 
 class ExpressionBuilder implements ExpressionBuilderInterface

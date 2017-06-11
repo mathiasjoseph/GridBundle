@@ -46,9 +46,9 @@ class BatchActionFormFactory
         $url = $this->router->generate($requestConfiguration->getRouteName("batch"));
         $form = $this->formFactory->createNamed('batch_action', 'form', [], ['required' => false, "action" => $url, 'attr' => ['id' => 'batch_action'] ]);
         $choices = array();
-        $choices["jh"] = "miky_grid.batch_actions";
+        $choices["miky_grid.batch_actions"] = null;
         foreach ($grid->getBatchActions() as $action){
-            $choices[$action->getName()] = $action->getLabel();
+            $choices[$action->getLabel()] = $action->getName();
         }
         $form->add("batchAction", ChoiceType::class,array(
             "choices" => $choices,

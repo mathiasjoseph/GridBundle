@@ -11,9 +11,9 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\DBAL;
 
+use Doctrine\DBAL\Query\QueryBuilder;
 use Miky\Component\Grid\Data\DataSourceInterface;
 use Miky\Component\Grid\Parameters;
-use Doctrine\DBAL\Query\QueryBuilder;
 use Pagerfanta\Adapter\DoctrineDbalAdapter;
 use Pagerfanta\Pagerfanta;
 

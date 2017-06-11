@@ -13,6 +13,7 @@ namespace Miky\Bundle\GridBundle\Form\Type\Filter;
 
 use Miky\Component\Grid\Filter\StringFilter;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -25,7 +26,7 @@ class StringFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type', 'choice', [
+            ->add('type', ChoiceType::class, [
                 'choices' => [
                     StringFilter::TYPE_CONTAINS => 'miky_core.contains',
                     StringFilter::TYPE_NOT_CONTAINS => 'miky_core.not_contains',

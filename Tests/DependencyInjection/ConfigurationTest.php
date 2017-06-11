@@ -11,9 +11,9 @@
 
 namespace Miky\Bundle\GridBundle\Tests\DependencyInjection;
 
+use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use Miky\Bundle\GridBundle\DependencyInjection\Configuration;
 use Miky\Bundle\GridBundle\Doctrine\ORM\Driver;
-use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 
 
 class ConfigurationTest extends \PHPUnit_Framework_TestCase

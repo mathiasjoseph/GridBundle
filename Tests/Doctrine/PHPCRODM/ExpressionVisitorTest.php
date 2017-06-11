@@ -11,8 +11,6 @@
 
 namespace Miky\Bundle\GridBundle\Tests\DependencyInjection;
 
-use Miky\Bundle\GridBundle\Doctrine\PHPCRODM\ExpressionVisitor;
-use Miky\Bundle\GridBundle\Doctrine\PHPCRODM\ExtraComparison;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\Common\Collections\Expr\CompositeExpression;
 use Doctrine\ODM\PHPCR\Query\Builder\AbstractLeafNode;
@@ -21,6 +19,8 @@ use Doctrine\ODM\PHPCR\Query\Builder\ConstraintComparison;
 use Doctrine\ODM\PHPCR\Query\Builder\OperandDynamicField;
 use Doctrine\ODM\PHPCR\Query\Builder\OperandStaticLiteral;
 use Doctrine\ODM\PHPCR\Query\Builder\QueryBuilder;
+use Miky\Bundle\GridBundle\Doctrine\PHPCRODM\ExpressionVisitor;
+use Miky\Bundle\GridBundle\Doctrine\PHPCRODM\ExtraComparison;
 
 require(__DIR__ . '/QueryBuilderWalker.php');
 

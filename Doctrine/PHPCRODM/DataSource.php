@@ -11,9 +11,9 @@
 
 namespace Miky\Bundle\GridBundle\Doctrine\PHPCRODM;
 
+use Doctrine\ODM\PHPCR\Query\Builder\QueryBuilder;
 use Miky\Component\Grid\Data\DataSourceInterface;
 use Miky\Component\Grid\Parameters;
-use Doctrine\ODM\PHPCR\Query\Builder\QueryBuilder;
 use Pagerfanta\Adapter\DoctrineODMPhpcrAdapter;
 use Pagerfanta\Pagerfanta;
 
