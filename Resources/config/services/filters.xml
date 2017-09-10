@@ -7,6 +7,9 @@
         <service id="miky.grid_filter.boolean" class="Miky\Component\Grid\Filter\BooleanFilter">
             <tag name="miky.grid_filter" type="boolean" />
         </service>
+        <service id="miky.grid_filter.translatable_string" class="Miky\Component\Grid\Filter\TranslatableStringFilter">
+            <tag name="miky.grid_filter" type="translatable_string" />
+        </service>
 
     </services>
 </container>

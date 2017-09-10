@@ -14,41 +14,25 @@ namespace Miky\Bundle\GridBundle\Form\Type\Filter;
 use Miky\Component\Grid\Filter\BooleanFilter;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
 
 class BooleanFilterType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver
-            ->setDefaults([
-                'data_class' => null,
-                'required' => false,
-                'empty_value' => 'miky_core.all',
-                'choices' => [
-                    BooleanFilter::TRUE => 'miky_core.yes',
-                    BooleanFilter::FALSE => 'miky_core.no',
-                ],
-            ])
-            ->setOptional([
-                'field'
-            ])
-            ->setAllowedTypes([
-                'field' => ['string']
-            ])
-        ;
-    }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        return ChoiceType::class;
+
+            $builder->add('value', ChoiceType::class, array(
+        'data_class' => null,
+        'required' => false,
+        'placeholder' => 'miky_core.all',
+        'choices' => [
+            'miky_core.yes' => BooleanFilter::TRUE,
+            'miky_core.no' => BooleanFilter::FALSE
+        ],
+            ));
+
     }
 
     /**
