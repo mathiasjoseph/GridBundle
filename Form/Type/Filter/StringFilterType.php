@@ -26,19 +26,7 @@ class StringFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type', ChoiceType::class, [
-                'choices' => [
-                    StringFilter::TYPE_CONTAINS => 'miky_core.contains',
-                    StringFilter::TYPE_NOT_CONTAINS => 'miky_core.not_contains',
-                    StringFilter::TYPE_EQUAL => 'miky_core.equal',
-                    StringFilter::TYPE_EMPTY => 'miky_core.empty',
-                    StringFilter::TYPE_NOT_EMPTY => 'miky_core.not_empty',
-                    StringFilter::TYPE_STARTS_WITH => 'miky_core.starts_with',
-                    StringFilter::TYPE_ENDS_WITH => 'miky_core.ends_with',
-                    StringFilter::TYPE_IN => 'miky_core.in',
-                    StringFilter::TYPE_NOT_IN => 'miky_core.not_in'
-                ]
-            ])
+
             ->add('value', 'text', ['required' => false])
         ;
     }
